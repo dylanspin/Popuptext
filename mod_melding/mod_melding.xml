@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+	<name>Melding</name>
+	<author>Dylan</author>
+	<version>1.0.0</version>
+	<description>Een Melding module</description>
+	<files>
+		<filename>mod_melding.xml</filename>
+		<filename module="mod_melding">mod_melding.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>sql/install.sql</filename>
+		<filename>sql/uninstall.sql</filename>
+		<folder>css</folder>
+		<folder>tmpl</folder>
+	</files>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+    		<field name="module_kleur" type="color" label="Bericht kleur" default="#3072E5"/>
+    	  <field name="text_kleur" type="color" label="Text kleur" default="#FFFFFF"/>
+        <field name="module_hoogte" type="number" label="hoogte module" default="60"/>
+      	<field name="font" type="number" label="font size" default="20"/>
+        <field name="text" type="text" label="Begin text" default="Hier moet nog wat komen te staan"/>
+				<field type="radio" name="berichtcheck" label="Bericht Aan: " default="1" class="btn-group btn-group-yesno">
+					<option value="1">ja</option>
+					<option value="0">nee</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<!-- <updateserver>
+		<server type="extension" priority="1" name="Takties klantenscore update">
+	            http://update.takties.nl/mod_klant/update.xml
+	  </server>
+	</updateserver> -->
+</extension>
